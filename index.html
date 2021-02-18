@@ -21,7 +21,7 @@
         var context = element.getContext( "2d" ) ;
 
         function drawArc() {
-            context.arc( random(0, WIDTH), random(0, HEIGHT), random(3, 50), 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
+            context.ellipse(random(0, WIDTH), random(0, HEIGHT), random(3, 50), random(3, 50), Math.PI, 0, 2 * Math.PI);
             context.fillStyle = randomColor();
             context.fill() ;
         }
