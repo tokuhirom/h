@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <canvas id="c" width="1024" height="768"></canvas>
+    <script>
+        function random(n, m) {
+            // Generate random number between n and m.
+            return Math.floor(Math.random() * (m + 1 - n)) + n
+        }
+        function randomColor() {
+            return `rgba(
+            ${random(0, 255)},
+            ${random(0, 255)},
+            ${random(0, 255)}, 0.8)`;
+        }
+
+        const element = document.getElementById("c");
+
+        const WIDTH = 1024;
+        const HEIGHT = 768;
+
+        var context = element.getContext( "2d" ) ;
+
+        function drawArc() {
+            context.arc( random(0, WIDTH), random(0, HEIGHT), random(3, 50), 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
+            context.fillStyle = randomColor();
+            context.fill() ;
+        }
+
+        function drawRect() {
+            context.beginPath () ;
+            context.rect( random(0, WIDTH), random(0, HEIGHT), random(1, 75), random(1, 75) )
+            context.fillStyle = randomColor();
+            context.fill() ;
+        }
+
+        for (var i=0; i<10000; i++) {
+            drawArc();
+            drawRect();
+        }
+
+    </script>
+</html>
